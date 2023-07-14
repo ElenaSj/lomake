@@ -18,6 +18,8 @@ function NavBar() {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = (lang) => {
+    if (lang==='edellinen') setAnchorEl(null);
+    else
     changeLanguage(lang);
     setAnchorEl(null);
   };
@@ -51,7 +53,7 @@ function NavBar() {
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClose={()=>handleClose('edellinen')}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
