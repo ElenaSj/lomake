@@ -9,15 +9,31 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-
+import Divider from '@mui/material/Divider';
 
 const FormFieldDesktop = ({step}) => {
     const [checkbox, setbox] = useState(false)
+    const [additionals, checkAdditionals] = useState({
+        allergy: false,
+        diet: false,
+        support: false,
+        disability: false
+    })
+
+    const handleCheck = (event) => {
+        checkAdditionals({
+            ...additionals,
+            [event.target.name]: event.target.checked,
+        })
+    }
+
+    const {allergy, diet, support, disability} = additionals
 
     return (
         <div>
+            
             {step===0 && <div>
-                <FormControl>
+                <FormControl sx={{marginTop: 4}}>
       <FormLabel id="demo-row-radio-buttons-group-label">Hakemuksen tyyppi</FormLabel>
       <RadioGroup
         row
@@ -30,10 +46,11 @@ const FormFieldDesktop = ({step}) => {
         <FormControlLabel value="transfer" control={<Radio />} label="Siirtohakemus / lapsi on päivähoidossa ja haen siirtoa toiseen hoitopaikkaan" />
         </RadioGroup>
     </FormControl>
+    <Divider sx={{marginTop: 2, marginBottom: 2}} variant="middle" />
             <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1 },
+        '& .MuiTextField-root': { mt: 1 },
       }}
       noValidate
       autoComplete="off"
@@ -82,19 +99,26 @@ const FormFieldDesktop = ({step}) => {
         />
        
       </div>
-        
+      <Divider sx={{marginTop: 2, marginBottom: 2}} variant="middle" />
+      <FormControl>
+      <FormLabel id="demo-row-radio-buttons-group-label">Lisätiedot</FormLabel>
       <FormGroup>
-      <FormControlLabel control={<Checkbox />} label="Lapsella on allergia" />
-      <FormControlLabel control={<Checkbox />} label="Lapsella on erityisruokavalio" />
-      <FormControlLabel control={<Checkbox />} label="Lapsella on erityisen tuen tarvetta" />
-      <FormControlLabel control={<Checkbox />} label="Lapsella on sairaus tai vamma" />
+      <FormControlLabel control={<Checkbox checked={allergy} onChange={handleCheck} name="allergy" />} label="Lapsella on allergia" />
+      <FormControlLabel control={<Checkbox checked={diet} onChange={handleCheck} name="diet" />} label="Lapsella on erityisruokavalio" />
+      <FormControlLabel control={<Checkbox checked={support} onChange={handleCheck} name="support"/>} label="Lapsella on erityisen tuen tarvetta" />
+      <FormControlLabel control={<Checkbox checked={disability} onChange={handleCheck} name="disability" />} label="Lapsella on sairaus tai vamma" />
     </FormGroup>
-    <TextField
-          id="standard-textarea"
+    </FormControl>
+    <FormControl>
+      <FormGroup>
+    {(additionals.allergy||additionals.diet||additionals.support||additionals.disability) && <TextField
+          id="outlined-multiline-static"
           label="Kuvaile tarkemmin"
           multiline
-          variant="standard"
-        /> 
+          rows={5}
+        /> }
+        </FormGroup>
+    </FormControl>
        </Box></div>}
       {step===1 && <div>
             <Box
