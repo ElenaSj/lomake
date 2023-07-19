@@ -50,12 +50,12 @@ const FormFieldDesktop = ({step}) => {
             <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { mt: 1 },
+        '& .MuiTextField-root': { m: 1 },
       }}
       noValidate
       autoComplete="off"
     >
-        <FormLabel id="demo-row-radio-buttons-group-label">Anna lapsen henkilötiedot</FormLabel>
+        <FormLabel>Anna lapsen henkilötiedot</FormLabel>
       <div>
       
       <TextField
@@ -105,7 +105,7 @@ const FormFieldDesktop = ({step}) => {
       <FormGroup>
       <FormControlLabel control={<Checkbox checked={allergy} onChange={handleCheck} name="allergy" />} label="Lapsella on allergia" />
       <FormControlLabel control={<Checkbox checked={diet} onChange={handleCheck} name="diet" />} label="Lapsella on erityisruokavalio" />
-      <FormControlLabel control={<Checkbox checked={support} onChange={handleCheck} name="support"/>} label="Lapsella on erityisen tuen tarvetta" />
+      <FormControlLabel control={<Checkbox checked={support} onChange={handleCheck} name="support"/>} label="Lapsella on erityisen tuen tarve" />
       <FormControlLabel control={<Checkbox checked={disability} onChange={handleCheck} name="disability" />} label="Lapsella on sairaus tai vamma" />
     </FormGroup>
     </FormControl>
@@ -115,21 +115,24 @@ const FormFieldDesktop = ({step}) => {
           id="outlined-multiline-static"
           label="Kuvaile tarkemmin"
           multiline
-          rows={5}
+          rows={6}
+          sx={{width: '50ch'}}
         /> }
         </FormGroup>
     </FormControl>
        </Box></div>}
+
       {step===1 && <div>
             <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { marginTop: 1, marginBottom: 1, width: '80vw' },
+        '& .MuiTextField-root': { m: 1 },
       }}
       noValidate
       autoComplete="off"
     >
-      <div>
+        <FormLabel id="demo-row-radio-buttons-group-label">Täytä huoltajan henkilö- ja yhteystiedot</FormLabel>
+        <div>
       <TextField
           required
           id="standard-required"
@@ -148,6 +151,8 @@ const FormFieldDesktop = ({step}) => {
           label="Sukunimi"
           variant="standard"
         />
+        </div>
+        <div>
                         <TextField
           required
           id="standard-required"
@@ -160,6 +165,8 @@ const FormFieldDesktop = ({step}) => {
           label="Sähköpostiosoite"
           variant="standard"
         />
+        </div>
+        <div>
                 <TextField
           required
           id="standard-required"
@@ -181,10 +188,19 @@ const FormFieldDesktop = ({step}) => {
           label="Postitoimipaikka"
           variant="standard"
         />
+        </div>
+        <FormControl>
             <FormGroup>
-      <FormControlLabel onClick={()=>setbox(!checkbox)} control={<Checkbox />} label="Lapsen toinen huoltaja asuu samassa taloudessa" />
-    </FormGroup>
-    {checkbox && <><p>Täytä toisen huoltajan tiedot</p>
+      <FormControlLabel onClick={()=>setbox(!checkbox)} control={<Checkbox />} label="Toinen huoltaja asuu samassa taloudessa" />
+      </FormGroup>
+      </FormControl>
+      <FormControl>
+            <FormGroup>
+      <FormControlLabel control={<Checkbox />} label="Toinen huoltaja asuu eri taloudessa" />
+      </FormGroup>
+      </FormControl>
+    {checkbox && <div><FormLabel id="demo-row-radio-buttons-group-label">Täytä toisen huoltajan tiedot</FormLabel>
+    <div>
     <TextField
           required
           id="standard-required"
@@ -203,10 +219,49 @@ const FormFieldDesktop = ({step}) => {
           label="Sukunimi"
           variant="standard"
         />
-    </>}
+        </div>
+               <div>
+                        <TextField
+          required
+          id="standard-required"
+          label="Puhelinnumero"
+          variant="standard"
+        />
+                        <TextField
+          required
+          id="standard-required"
+          label="Sähköpostiosoite"
+          variant="standard"
+        />
+        </div>
+        
+        <div>
+                <TextField
+          required
+          id="standard-required"
+          label="Lähiosoite"
+          variant="standard"
+        />
+                <TextField
+          id="standard-number"
+          label="Postinumero"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="standard"
+        />
+                <TextField
+          required
+          id="standard-required"
+          label="Postitoimipaikka"
+          variant="standard"
+        />
+        </div>
+    </div>}
 
        
-      </div>    </Box></div>}
+       </Box></div>}
         </div>
     )
 
