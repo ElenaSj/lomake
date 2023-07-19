@@ -22,32 +22,38 @@ const FormField = ({label}) => {
     >
       <div>
       <TextField
+          size='small'
           required
           id="outlined-required"
           label="Henkilötunnus"
         />
         <TextField
+        size='small'
           required
           id="outlined-required"
           label="Etunimi"
         />
                 <TextField
+                size='small'
           required
           id="outlined-required"
           label="Sukunimi"
         />
                 <TextField
+                size='small'
           required
           id="outlined-required"
           label="Lähiosoite"
         />
                 <TextField
+                size='small'
                 required
                 id="outlined-required"
           label="Postinumero"
           type="number"
         />
                 <TextField
+                size='small'
           required
           id="outlined-required"
           label="Postitoimipaikka"
@@ -65,36 +71,43 @@ const FormField = ({label}) => {
     >
       <div>
       <TextField
+      size='small'
           required
           id="outlined-required"
           label="Henkilötunnus"
         />
         <TextField
+        size='small'
           required
           id="outlined-required"
           label="Etunimi"
         />
                 <TextField
+                size='small'
           required
           id="outlined-required"
           label="Sukunimi"
         />
                         <TextField
+                        size='small'
           required
           id="outlined-required"
           label="Puhelinnumero"
         />
                         <TextField
+                        size='small'
           required
           id="outlined-required"
           label="Sähköpostiosoite"
         />
                 <TextField
+                size='small'
           required
           id="outlined-required"
           label="Lähiosoite"
         />
                 <TextField
+                size='small'
           id="outlined-number"
           label="Postinumero"
           type="number"
@@ -103,25 +116,30 @@ const FormField = ({label}) => {
           }}
         />
                 <TextField
+                size='small'
           required
           id="outlined-required"
           label="Postitoimipaikka"
         />
             <FormGroup>
-      <FormControlLabel onClick={()=>setbox(!checkbox)} control={<Checkbox />} label="Lapsen toinen huoltaja asuu samassa taloudessa" />
+      <FormControlLabel onClick={()=>setbox(!checkbox)} control={<Checkbox />} label="Lapsella on toinen huoltaja" />
     </FormGroup>
     {checkbox && <><p>Täytä toisen huoltajan tiedot</p>
+    <FormControlLabel control={<Checkbox />} label="Toinen huoltaja asuu samassa taloudessa" />
     <TextField
+    size='small'
           required
           id="outlined-required"
           label="Henkilötunnus"
         />
         <TextField
+        size='small'
           required
           id="outlined-required"
           label="Etunimi"
         />
                 <TextField
+                size='small'
           required
           id="outlined-required"
           label="Sukunimi"

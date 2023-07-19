@@ -64,6 +64,7 @@ export default function VerticalLinearStepper() {
               <Box sx={{ mb: 2 }}>
                 <div>
                   <Button
+                  size='small'
                     variant="contained"
                     onClick={handleNext}
                     sx={{ mt: 1, mr: 1 }}
@@ -72,6 +73,7 @@ export default function VerticalLinearStepper() {
                   </Button>
                   { index!==0 &&
                   <Button
+                  size='small'
                     onClick={handleBack}
                     sx={{ mt: 1, mr: 1 }}
                   >

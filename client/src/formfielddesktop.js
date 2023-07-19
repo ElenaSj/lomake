@@ -23,6 +23,7 @@ const FormFieldDesktop = ({step}) => {
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
+        defaultValue="new"
       >
         
         <FormControlLabel value="new" control={<Radio />} label="Uusi hakemus / lapsi ei ole päivähoidossa" />
@@ -80,7 +81,21 @@ const FormFieldDesktop = ({step}) => {
           variant="standard"
         />
        
-      </div>    </Box></div>}
+      </div>
+        
+      <FormGroup>
+      <FormControlLabel control={<Checkbox />} label="Lapsella on allergia" />
+      <FormControlLabel control={<Checkbox />} label="Lapsella on erityisruokavalio" />
+      <FormControlLabel control={<Checkbox />} label="Lapsella on erityisen tuen tarvetta" />
+      <FormControlLabel control={<Checkbox />} label="Lapsella on sairaus tai vamma" />
+    </FormGroup>
+    <TextField
+          id="standard-textarea"
+          label="Kuvaile tarkemmin"
+          multiline
+          variant="standard"
+        /> 
+       </Box></div>}
       {step===1 && <div>
             <Box
       component="form"
